@@ -213,6 +213,7 @@ def test_aws_auth_url(instance, expected_aws_host, expected_aws_service):
     # make sure class attribute HTTP_CONFIG_REMAPPER is not modified
     assert 'aws_host' not in ESCheck.HTTP_CONFIG_REMAPPER
 
+
 @pytest.mark.unit
 @pytest.mark.parametrize(
     'instance, expected_aws_host, expected_aws_service',
@@ -224,7 +225,7 @@ def test_aws_auth_url(instance, expected_aws_host, expected_aws_service):
             'es',
             id='aws_host_custom_no_url',
         ),
-    ]
+    ],
 )
 def test_aws_auth_no_url(instance, expected_aws_host, expected_aws_service):
     with pytest.raises(ConfigurationError):
@@ -235,6 +236,7 @@ def test_aws_auth_no_url(instance, expected_aws_host, expected_aws_service):
 
         # make sure class attribute HTTP_CONFIG_REMAPPER is not modified
         assert 'aws_host' not in ESCheck.HTTP_CONFIG_REMAPPER
+
 
 @pytest.mark.e2e
 def test_e2e(dd_agent_check, elastic_check, instance, cluster_tags, node_tags):
